@@ -79,14 +79,14 @@
             "cardImage": "assets/img/portfolio/cseCard.png",
             "hoverImage": "assets/img/portfolio/cseHoverCard.png",
             "gallery": [
-                "assets/img/portfolio/cse-gallery/CSE/S1.png",
-                "assets/img/portfolio/cse-gallery/CSE/S2.png",
-                "assets/img/portfolio/cse-gallery/CSE/S3.png",
-                "assets/img/portfolio/cse-gallery/CSE/S4.png",
-                "assets/img/portfolio/cse-gallery/CSE/S5.png",
-                "assets/img/portfolio/cse-gallery/CSE/S6.png",
-                "assets/img/portfolio/cse-gallery/CSE/S7.png",
-                "assets/img/portfolio/cse-gallery/CSE/S8.png"
+                "assets/img/portfolio/CSE-GALLERY/CSE/S1.png",
+                "assets/img/portfolio/CSE-GALLERY/CSE/S2.png",
+                "assets/img/portfolio/CSE-GALLERY/CSE/S3.png",
+                "assets/img/portfolio/CSE-GALLERY/CSE/S4.png",
+                "assets/img/portfolio/CSE-GALLERY/CSE/S5.png",
+                "assets/img/portfolio/CSE-GALLERY/CSE/S6.png",
+                "assets/img/portfolio/CSE-GALLERY/CSE/S7.png",
+                "assets/img/portfolio/CSE-GALLERY/CSE/S8.png"
             ],
             "bgColor": "#1e1b4b"
         },
@@ -135,8 +135,8 @@
             "category": "Education",
             "description": "Ultimate LTO Exam Reviewer is a comprehensive review app designed to help aspiring candidates prepare effectively for the Land Transportation Office (LTO) Exam. Covering both theoretical and practical driving knowledge, the app features a regularly updated question database, realistic practice tests, instant performance feedback, detailed analytics, and helpful resources for license application and renewal. With its user-friendly interface and expertly crafted review materials, it enables users to strengthen key areas, improve test-taking skills, and build confidence—making it a reliable companion for achieving success in the LTO Exam.",
             "techStack": "Kotlin, Firebase, Room, Jetpack Compose, Google Ads, In-App Purchases",
-            "cardImage": "assets/img/portfolio/ltoCard.png",
-            "hoverImage": "assets/img/portfolio/ltoHoverCard.png",
+            "cardImage": "assets/img/portfolio/LTOCard.png",
+            "hoverImage": "assets/img/portfolio/LTOHoverCard.png",
             "gallery": [
                 "assets/img/portfolio/LTO-GALLERY/LTO/1000016291.png",
                 "assets/img/portfolio/LTO-GALLERY/LTO/1000016293.png",
