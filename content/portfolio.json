@@ -24,10 +24,20 @@
             "id": "oanda",
             "title": "OANDA - Global Trading",
             "category": "Fintech & Trading",
-            "description": "A world-class trading platform for Forex and CFDs. Features real-time market data, advanced charting tools, and high-speed execution. Implemented complex data visualization and real-time WebSocket integrations for low-latency market updates.",
+            "description": "OANDA promotes its award-winning, user-friendly mobile forex trading app for active traders in the U.S. The app allows users to trade major and minor currency pairs (such as EUR/USD, USD/CAD, USD/JPY, AUD/USD, and GBP/USD) with tight spreads, low commissions, real-time quotes, and advanced charting tools. Key features include: Fast order execution and real-time notifications, customizable interface and risk management tools, ability to place trades directly from charts, access to 50+ technical analysis tools, market news, economic calendars, and trading signals. OANDA highlights its regulatory compliance, transparency, global presence, and multilingual 24/5 customer support. The ad encourages users to download the free app, apply for an account, fund it, and start trading, while noting that forex margin trading is high risk and may result in losses exceeding the initial investment.",
             "techStack": "Kotlin, WebSockets, RxJava, Custom Charting, Real-time Networking, Material Design",
             "cardImage": "assets/img/portfolio/oandaCard.png",
             "hoverImage": "assets/img/portfolio/oandaHoverCard.png",
+            "gallery": [
+                "assets/img/portfolio/oanda-GALLERY/oanda-s1.webp",
+                "assets/img/portfolio/oanda-GALLERY/oanda-s2.webp",
+                "assets/img/portfolio/oanda-GALLERY/oanda-s3.webp",
+                "assets/img/portfolio/oanda-GALLERY/oanda-s4.webp",
+                "assets/img/portfolio/oanda-GALLERY/oanda-s5.webp",
+                "assets/img/portfolio/oanda-GALLERY/oanda-s6.webp",
+                "assets/img/portfolio/oanda-GALLERY/oanda-s7.webp",
+                "assets/img/portfolio/oanda-GALLERY/oanda-s8.webp"
+            ],
             "bgColor": "#1a1a1a"
         },
         {
@@ -146,7 +156,7 @@
             "description": "A Laundry Management System (LMS) is a digital system used to manage laundry shop operations efficiently. It tracks customer orders, service types, pricing, pickup and delivery, payment transactions, and order status. The system helps organize workflow, reduce errors, monitor income, and improve customer service by providing accurate and real-time updates.",
             "techStack": "Typescript, Laravel, React, Tailwind CSS, MySQL, Appointment Scheduling",
             "cardImage": "assets/img/portfolio/lmsCard.png",
-            "hoverImage": "assets/img/portfolio/lmsHoverCard.png",
+            "hoverImage": "assets/img/portfolio/lmsHoverCardAlt.png",
             "gallery": [
                 "assets/img/portfolio/LMS -GALLERY/LMS/LMS1.png",
                 "assets/img/portfolio/LMS -GALLERY/LMS/LMS2.png",
@@ -177,8 +187,8 @@
             "category": "Healthcare",
             "description": "A Clinic Management System (CMS) is a system designed to efficiently manage and streamline the daily operations of a clinic. It facilitates patient registration, appointment scheduling, medical record management, prescription handling, and basic administrative tasks. The system enhances operational efficiency, minimizes manual paperwork, ensures accurate and secure record-keeping, and improves the overall quality of patient care and service delivery.",
             "techStack": "JavaScript, PHP, HTML, CSS, Bootstrap, MySQL, Appointment Scheduling",
-            "cardImage": "assets/img/portfolio/cmsCard.png",
-            "hoverImage": "assets/img/portfolio/cmsHoverCard.png",
+            "cardImage": "assets/img/portfolio/cmsCardAlt.png",
+            "hoverImage": "assets/img/portfolio/cmsHoverCardAlt.png",
             "gallery": [
                 "assets/img/portfolio/CMS-GALLERY/CMS/CMS-1.png",
                 "assets/img/portfolio/CMS-GALLERY/CMS/CMS2.png",
