@@ -138,6 +138,67 @@
                 "assets/img/portfolio/LTO-GALLERY/LTO/1000016305.png"
             ],
             "bgColor": "#2a1a32"
+        },
+        {
+            "id": "lms",
+            "title": "Laundry Management System (LMS)",
+            "category": "Business & Admin",
+            "description": "A Laundry Management System (LMS) is a digital system used to manage laundry shop operations efficiently. It tracks customer orders, service types, pricing, pickup and delivery, payment transactions, and order status. The system helps organize workflow, reduce errors, monitor income, and improve customer service by providing accurate and real-time updates.",
+            "techStack": "Typescript, Laravel, React, Tailwind CSS, MySQL, Appointment Scheduling",
+            "cardImage": "assets/img/portfolio/lmsCard.png",
+            "hoverImage": "assets/img/portfolio/lmsHoverCard.png",
+            "gallery": [
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS1.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS2.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS3.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS4.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS5.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS6.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS7.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS8.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS9.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS10.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS11.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS12.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS13.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS14.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS15.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS16.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS17.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS18.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS19.png",
+                "assets/img/portfolio/LMS -GALLERY/LMS/LMS20.png"
+            ],
+            "bgColor": "#4f46e5"
+        },
+        {
+            "id": "cms",
+            "title": "Clinic Management System (CMS)",
+            "category": "Healthcare",
+            "description": "A Clinic Management System (CMS) is a system designed to efficiently manage and streamline the daily operations of a clinic. It facilitates patient registration, appointment scheduling, medical record management, prescription handling, and basic administrative tasks. The system enhances operational efficiency, minimizes manual paperwork, ensures accurate and secure record-keeping, and improves the overall quality of patient care and service delivery.",
+            "techStack": "JavaScript, PHP, HTML, CSS, Bootstrap, MySQL, Appointment Scheduling",
+            "cardImage": "assets/img/portfolio/cmsCard.png",
+            "hoverImage": "assets/img/portfolio/cmsHoverCard.png",
+            "gallery": [
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS-1.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS2.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS3.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS4.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS5.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS6.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS7.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS8.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS9.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS10.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS11.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS12.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS13.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS14.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS15.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS16.png",
+                "assets/img/portfolio/CMS-GALLERY/CMS/CMS17.png"
+            ],
+            "bgColor": "#be185d"
         }
     ]
 }
