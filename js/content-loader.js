@@ -332,15 +332,35 @@ const ContentLoader = {
         // Load Members
         const gridContainer = document.getElementById('team-grid');
         if (gridContainer && data.members) {
-            gridContainer.innerHTML = data.members.map(member => `
-                <div class="col-sm-6 col-md-4 col-lg-3 team-card show" data-category="${member.category}">
+            // Group members by name to avoid duplicates in ALL view
+            const uniqueMembers = [];
+            const memberMap = new Map();
+
+            data.members.forEach(member => {
+                if (memberMap.has(member.name)) {
+                    const existing = memberMap.get(member.name);
+                    if (!existing.roles.includes(member.role)) {
+                        existing.roles.push(member.role);
+                    }
+                    if (!existing.categories.includes(member.category)) {
+                        existing.categories.push(member.category);
+                    }
+                } else {
+                    const newMem = { ...member, roles: [member.role], categories: [member.category] };
+                    memberMap.set(member.name, newMem);
+                    uniqueMembers.push(newMem);
+                }
+            });
+
+            gridContainer.innerHTML = uniqueMembers.map(member => `
+                <div class="col-sm-6 col-md-4 col-lg-3 team-card show" data-categories="${member.categories.join(',')}">
                     <div class="team-card-image-wrapper">
                         <div class="team-card-image-inner">
                             <img src="${member.image}" alt="${member.name}" class="team-card-image" />
                         </div>
                     </div>
                     <h3 class="team-card-name">${member.name}</h3>
-                    <span class="team-card-role">${member.role}</span>
+                    <span class="team-card-role">${member.roles.join(' • ')}</span>
                 </div>
             `).join('');
 
@@ -362,7 +382,8 @@ const ContentLoader = {
 
                         // Use a timeout to allow the exit animation if we add one, or just hide
                         setTimeout(() => {
-                            if (filterValue === 'ALL' || card.getAttribute('data-category') === filterValue) {
+                            const cardCategories = card.getAttribute('data-categories').split(',');
+                            if (filterValue === 'ALL' || cardCategories.includes(filterValue)) {
                                 card.classList.remove('hidden');
                                 // Force reflow
                                 void card.offsetWidth;
@@ -384,11 +405,21 @@ const ContentLoader = {
         this.setText('portfolio-heading', data.heading);
         this.setText('portfolio-subheading', data.subheading);
 
+        // Load Categories/Filters
+        const filtersContainer = document.getElementById('portfolio-filters');
+        if (filtersContainer && data.categories) {
+            filtersContainer.innerHTML = data.categories.map((category) => {
+                const isActive = category === 'ALL' ? 'active' : '';
+                return `<button class="team-filter-btn ${isActive}" data-filter="${category}">${category}</button>`;
+            }).join('');
+        }
+
         const track = document.getElementById('portfolio-track');
         if (track && data.projects) {
             track.innerHTML = data.projects.map(project => `
-                <div class="portfolio-card-item"
+                <div class="portfolio-card-item show"
                     data-id="${project.id}"
+                    data-service-category="${project.serviceCategory || ''}"
                     data-description="${project.description}"
                     data-tech-stack="${project.techStack}"
                     data-bg-color="${project.bgColor}"
@@ -405,8 +436,43 @@ const ContentLoader = {
                 </div>
             `).join('');
 
+            // Add filter functionality
+            const filterBtns = document.querySelectorAll('#portfolio-filters .team-filter-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active to clicked
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    portfolioCards.forEach(card => {
+                        card.classList.remove('show');
+
+                        // Use a timeout to allow the exit animation if we add one, or just hide
+                        setTimeout(() => {
+                            if (filterValue === 'ALL' || card.getAttribute('data-service-category') === filterValue) {
+                                card.style.display = 'block';
+                                // Force reflow
+                                void card.offsetWidth;
+                                card.classList.add('show');
+                            } else {
+                                card.style.display = 'none';
+                            }
+
+                            // Re-calculate drag distances for the horizontal scroll if needed
+                            if (window.portfolioExpansionInstance) {
+                                window.portfolioExpansionInstance.refreshCards();
+                            }
+                        }, 50); // slight delay for visual effect
+                    });
+                });
+            });
+
             // Re-initialize portfolio interactions if needed
-            // Since elements are newly added, checking if we need to call any init function
             if (window.initializePortfolioExpansion) {
                 window.initializePortfolioExpansion();
             }
@@ -427,14 +493,14 @@ const ContentLoader = {
 
         const pillarsContainer = document.getElementById('skills-pillars');
         if (pillarsContainer && data.pillars) {
-            pillarsContainer.innerHTML = data.pillars.map(pillar => `
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 p-4 hover-lift glass-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="${pillar.icon} fa-lg text-${pillar.iconColor} me-3"></i>
-                            <h3 class="h4 fw-bold mb-0 text-white">${pillar.title}</h3>
+            pillarsContainer.innerHTML = data.pillars.map((pillar, index) => `
+                <div class="col-md-6 col-lg-4 pillar-col">
+                    <div class="card h-100 p-4 hover-lift glass-card expertise-pillar-card" data-index="${index}">
+                        <div class="d-flex align-items-center column-gap-3 mb-3 title-wrapper">
+                            <i class="${pillar.icon} icon-dynamic text-${pillar.iconColor}"></i>
+                            <h3 class="fw-bold mb-0 text-white title-dynamic">${pillar.title}</h3>
                         </div>
-                        <p class="text-slate-400 mb-0">
+                        <p class="text-slate-400 mb-0 desc-dynamic">
                             ${pillar.description}
                         </p>
                     </div>
@@ -442,19 +508,23 @@ const ContentLoader = {
             `).join('');
         }
 
-        this.setText('skills-tech-label', data.techStack?.label);
+        const layoutWrapper = document.getElementById('skills-layout-wrapper');
         const techContainer = document.getElementById('skills-tech-list');
-        if (techContainer && data.techStack?.technologies) {
-            const techs = data.techStack.technologies;
+        const activeTitle = document.getElementById('tech-stack-active-title');
 
-            // Build each pad
-            const padsHTML = techs.map(tech => {
+        const renderTechStack = (techs) => {
+            if (!techs || techs.length === 0) {
+                techContainer.innerHTML = '<p class="text-slate-500 w-100 text-center">No precise technologies listed for this category.</p>';
+                return;
+            }
+
+            const padsHTML = techs.map((tech, i) => {
                 const name = typeof tech === 'string' ? tech : tech.name;
                 const icon = typeof tech === 'object' ? tech.icon : null;
                 const color = typeof tech === 'object' ? tech.color : '#4a90e2';
                 const glow = typeof tech === 'object' ? tech.glowColor : 'rgba(74,144,226,0.35)';
+                const delay = i * 0.05; // staggered animation
 
-                // Icon HTML
                 let iconHTML = '';
                 if (icon && (icon.startsWith('fas ') || icon.startsWith('far ') || icon.startsWith('fab ') || icon.startsWith('fa-'))) {
                     iconHTML = `<i class="${icon} soundboard-pad-icon"></i>`;
@@ -464,7 +534,7 @@ const ContentLoader = {
                 }
 
                 return `
-                <div class="soundboard-pad" data-color="${color}" data-glow="${glow}">
+                <div class="soundboard-pad tech-stack-item-animated" style="animation-delay: ${delay}s" data-color="${color}" data-glow="${glow}">
                     <div class="soundboard-pad-face">
                         <div class="soundboard-pad-stripe" style="background:${color};"></div>
                         ${iconHTML}
@@ -474,18 +544,12 @@ const ContentLoader = {
             }).join('');
 
             techContainer.innerHTML = `
-                <div class="soundboard-wrapper">
-                    <div class="soundboard-screw tl"></div>
-                    <div class="soundboard-screw tr"></div>
-                    <div class="soundboard-screw bl"></div>
-                    <div class="soundboard-screw br"></div>
-                    <div class="soundboard-grid">
-                        ${padsHTML}
-                    </div>
+                <div class="d-flex flex-wrap justify-content-center gap-3 w-100 mt-4">
+                    ${padsHTML}
                 </div>
             `;
 
-            // Hover glow & icon color via JS (color driven per-pad)
+            // Re-bind hover events for new pads
             techContainer.querySelectorAll('.soundboard-pad').forEach(pad => {
                 const color = pad.dataset.color;
                 const glow = pad.dataset.glow;
@@ -509,6 +573,80 @@ const ContentLoader = {
                     face.style.boxShadow = '';
                 });
             });
+        };
+
+        if (layoutWrapper && pillarsContainer) {
+            const pillarCards = pillarsContainer.querySelectorAll('.expertise-pillar-card');
+
+            pillarCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const index = card.getAttribute('data-index');
+                    const pillarData = data.pillars[index];
+
+                    // Lock height to the grid's natural height to prevent page resize/jump
+                    if (layoutWrapper.classList.contains('skills-grid-view')) {
+                        const h = layoutWrapper.offsetHeight;
+                        layoutWrapper.style.height = h + 'px';
+                        layoutWrapper.style.minHeight = h + 'px';
+                    }
+
+                    // Update active states
+                    pillarCards.forEach(c => c.classList.remove('expertise-active'));
+                    card.classList.add('expertise-active');
+
+                    // Switch layout to sidebar view
+                    layoutWrapper.classList.remove('skills-grid-view');
+                    layoutWrapper.classList.add('skills-sidebar-view');
+                    document.getElementById('skills-left-panel').classList.remove('grid-mode-panel');
+                    techContainer.parentElement.classList.remove('grid-mode-panel');
+
+                    // Update title
+                    if (activeTitle) activeTitle.textContent = pillarData.title + ' Stack';
+
+                    // Render tech stack
+                    renderTechStack(pillarData.techStack);
+
+                    // Scroll to the top of the section on mobile if needed
+                    if (window.innerWidth < 992) {
+                        layoutWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Revert layout to grid when the expertise section goes out of view
+            if (section) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-10% 0px -10% 0px', // Prevents triggering right on the edge
+                    threshold: 0
+                };
+
+                const expertiseObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // Only trigger when scrolling away, and prevent layout jumps by wrapping in requestAnimationFrame
+                        if (!entry.isIntersecting && layoutWrapper.classList.contains('skills-sidebar-view')) {
+                            // Check if the scroll has truly passed the section (bounding top is way off)
+                            // This stops the jitter when the height change immediately triggers another intersection
+                            requestAnimationFrame(() => {
+                                layoutWrapper.style.minHeight = layoutWrapper.offsetHeight + 'px'; // Lock height temporarily
+                                layoutWrapper.classList.remove('skills-sidebar-view');
+                                layoutWrapper.classList.add('skills-grid-view');
+                                document.getElementById('skills-left-panel').classList.add('grid-mode-panel');
+                                techContainer.parentElement.classList.add('grid-mode-panel');
+                                pillarCards.forEach(c => c.classList.remove('expertise-active'));
+
+                                // Unlock height after transition finishes
+                                setTimeout(() => {
+                                    layoutWrapper.style.height = '';
+                                    layoutWrapper.style.minHeight = '';
+                                }, 500);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                expertiseObserver.observe(section);
+            }
         }
     },
 
