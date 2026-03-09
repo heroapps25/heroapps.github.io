@@ -1,70 +1,115 @@
 {
     "heading": "Meet the team.",
     "categories": [
+        "ALL",
         "LEADERSHIP",
-        "CLIENT SERVICES",
-        "CREATIVE",
-        "DEVELOPMENT",
-        "MARKETING & SALES",
-        "STRATEGY",
-        "ALL"
+        "MANAGEMENT",
+        "ANDROID DEVELOPMENT",
+        "FULLSTACK DEVELOPMENT",
+        "DESIGN"
     ],
     "members": [
         {
-            "name": "Michelle Chu",
-            "role": "Director of Technology",
+            "name": "Harold E. Calayan",
+            "role": "Founder & CEO",
             "category": "LEADERSHIP",
-            "image": "assets/img/team/default-avatar-1.jpg",
-            "country": "assets/img/flags/us.svg"
+            "image": "assets/img/the_team/harold_profile.png"
         },
         {
-            "name": "Phil Dupertuis",
-            "role": "Director of Client Services",
-            "category": "CLIENT SERVICES",
-            "image": "assets/img/team/default-avatar-2.jpg",
-            "country": "assets/img/flags/us.svg"
-        },
-        {
-            "name": "Maria Eades",
-            "role": "Director of People & Culture",
+            "name": "Priscarl C. Montarye",
+            "role": "HR and Finance Manager",
             "category": "LEADERSHIP",
-            "image": "assets/img/team/default-avatar-3.jpg",
-            "country": "assets/img/flags/au.svg"
+            "image": "assets/img/the_team/priscarl_profile.png"
         },
         {
-            "name": "Tony Eades",
-            "role": "Chief Strategy Officer",
-            "category": "STRATEGY",
-            "image": "assets/img/team/default-avatar-4.jpg",
-            "country": "assets/img/flags/au.svg"
+            "name": "Irish Panganiban",
+            "role": "Project Manager",
+            "category": "MANAGEMENT",
+            "image": "assets/img/the_team/irish_no.png"
         },
         {
-            "name": "Jason Feller",
-            "role": "Business Unit Director",
-            "category": "LEADERSHIP",
-            "image": "assets/img/team/default-avatar-5.jpg",
-            "country": "assets/img/flags/us.svg"
+            "name": "John Rei Cabuñas",
+            "role": "Android Developer",
+            "category": "ANDROID DEVELOPMENT",
+            "image": "assets/img/the_team/johnrei_no.png"
         },
         {
-            "name": "David Smith",
-            "role": "Lead Developer",
-            "category": "DEVELOPMENT",
-            "image": "assets/img/team/default-avatar-6.jpg",
-            "country": "assets/img/flags/us.svg"
+            "name": "Joshua Bauca",
+            "role": "Android Developer",
+            "category": "ANDROID DEVELOPMENT",
+            "image": "assets/img/the_team/JBauca_no.png"
         },
         {
-            "name": "Sarah Jones",
-            "role": "Creative Director",
-            "category": "CREATIVE",
-            "image": "assets/img/team/default-avatar-7.jpg",
-            "country": "assets/img/flags/au.svg"
+            "name": "Mark Jerald Canal",
+            "role": "Android Developer",
+            "category": "ANDROID DEVELOPMENT",
+            "image": "assets/img/the_team/Mark_no.png"
         },
         {
-            "name": "Emily Chen",
-            "role": "Marketing Specialist",
-            "category": "MARKETING & SALES",
-            "image": "assets/img/team/default-avatar-8.jpg",
-            "country": "assets/img/flags/us.svg"
+            "name": "Alexis Talento",
+            "role": "Android Developer",
+            "category": "ANDROID DEVELOPMENT",
+            "image": "assets/img/the_team/Alexis_no.png"
+        },
+        {
+            "name": "Jay Austin Bobis",
+            "role": "Android Developer",
+            "category": "ANDROID DEVELOPMENT",
+            "image": "assets/img/the_team/Jay_Austin_no.png"
+        },
+        {
+            "name": "Philip Abel Florida",
+            "role": "Android Developer",
+            "category": "ANDROID DEVELOPMENT",
+            "image": "assets/img/the_team/philip_no.png"
+        },
+        {
+            "name": "Mark Jerald Canal",
+            "role": "Fullstack Developer",
+            "category": "FULLSTACK DEVELOPMENT",
+            "image": "assets/img/the_team/Mark_no.png"
+        },
+        {
+            "name": "Julius Jervin Bunadalian",
+            "role": "Fullstack Developer",
+            "category": "FULLSTACK DEVELOPMENT",
+            "image": "assets/img/the_team/julius_no.png"
+        },
+        {
+            "name": "Jan Patrick Echano",
+            "role": "Fullstack Developer",
+            "category": "FULLSTACK DEVELOPMENT",
+            "image": "assets/img/the_team/patrick_no.png"
+        },
+        {
+            "name": "Joshua Yet",
+            "role": "Fullstack Developer",
+            "category": "FULLSTACK DEVELOPMENT",
+            "image": "assets/img/the_team/Yet_Joshua_V_no.png"
+        },
+        {
+            "name": "Julius Jervin Bunadalian",
+            "role": "Designer",
+            "category": "DESIGN",
+            "image": "assets/img/the_team/julius_no.png"
+        },
+        {
+            "name": "Roseann San Juan",
+            "role": "Designer",
+            "category": "DESIGN",
+            "image": "assets/img/the_team/Roseann_no.png"
+        },
+        {
+            "name": "Jester Allain Salen",
+            "role": "Designer",
+            "category": "DESIGN",
+            "image": "assets/img/the_team/Jester_Salen_no.png"
+        },
+        {
+            "name": "Epiphany Jim Sangrio",
+            "role": "Designer",
+            "category": "DESIGN",
+            "image": "assets/img/the_team/epiphany_no.png"
         }
     ]
 }
