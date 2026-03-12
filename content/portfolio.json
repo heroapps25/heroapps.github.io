@@ -1,11 +1,20 @@
 {
     "heading": "Portfolio",
     "subheading": "Selected Projects & Professional Experience",
+    "categories": [
+        "ALL",
+        "Mobile App Development",
+        "Website Development",
+        "Robotics & Embedded Systems",
+        "App & Web Designs",
+        "Graphics, 3D & Animations"
+    ],
     "projects": [
         {
             "id": "gcash",
             "title": "GCash - Finance Super App",
             "category": "Fintech & Payments",
+            "serviceCategory": "Mobile App Development",
             "description": "GCash is an all-in-one mobile wallet that lets you send money, pay bills, shop, invest, borrow, and more—anytime, anywhere. Enjoy free GCash-to-GCash transfers, Send to Many, and fund transfers to banks and e-wallets like Maya, BPI, BDO, UnionBank, LandBank, Metrobank, and Chinabank, with saved details for faster future transactions. Buy load for all networks, access exclusive Globe and TM offers, and pay 400+ billers with options for reminders and recurring payments. Scan to Pay via QR at thousands of merchants locally and abroad, shop online securely, and link subscriptions directly to app stores. Eligible users can access credit options like GCredit, GLoan, GGives, and Borrow Load (loan products powered by Fuse Financing Inc., SEC-registered). Grow your money with GSave, GStocks, GFunds, and GCrypto, and stay protected with affordable insurance options. Cash in online or over the counter nationwide, and even help plant real trees by earning Green Energy points through transactions. GCash makes everyday financial tasks simple, secure, and accessible for Filipinos.",
             "techStack": "Kotlin, Clean Architecture, MVVM, Retrofit, Room, Biometric Auth, Payment Security",
             "cardImage": "assets/img/portfolio/gcashCard.png",
@@ -24,6 +33,7 @@
             "id": "oanda",
             "title": "OANDA - Global Trading",
             "category": "Fintech & Trading",
+            "serviceCategory": "Mobile App Development",
             "description": "OANDA promotes its award-winning, user-friendly mobile forex trading app for active traders in the U.S. The app allows users to trade major and minor currency pairs (such as EUR/USD, USD/CAD, USD/JPY, AUD/USD, and GBP/USD) with tight spreads, low commissions, real-time quotes, and advanced charting tools. Key features include: Fast order execution and real-time notifications, customizable interface and risk management tools, ability to place trades directly from charts, access to 50+ technical analysis tools, market news, economic calendars, and trading signals. OANDA highlights its regulatory compliance, transparency, global presence, and multilingual 24/5 customer support. The ad encourages users to download the free app, apply for an account, fund it, and start trading, while noting that forex margin trading is high risk and may result in losses exceeding the initial investment.",
             "techStack": "Kotlin, WebSockets, RxJava, Custom Charting, Real-time Networking, Material Design",
             "cardImage": "assets/img/portfolio/oandaCard.png",
@@ -44,6 +54,7 @@
             "id": "coinpass",
             "title": "coinpass - Crypto Exchange",
             "category": "Fintech & Cryptocurrency",
+            "serviceCategory": "Mobile App Development",
             "description": "Buy, sell and trade crypto assets on the go with coinpass*, the all-in-one crypto investing platform for UK businesses. With our crypto trading app you can seamlessly buy, sell, and trade digital assets and manage your crypto portfolio in a fully secure environment. Invest with confidence, convenience and speed. Voted the best corporate cryptocurrency exchange platform at CityAM's prestigious CryptoAM Awards, we’re the trusted UK crypto exchange for corporate investors. Our tailored business crypto solutions provide the market access, investment instruments and enterprise-grade security that you need, all within one convenient, centralised platform. Personalise your coinpass corporate crypto account to suit your trading style and schedule. You can trade over 85+ different crypto trading pairs in GBP, EUR, USDC, USDT, BTC & ETH with new pairs added all the time.",
             "techStack": "Kotlin, Coroutines, Dagger Hilt, Biometric Security, KYC Integration, Secure Data Storage",
             "cardImage": "assets/img/portfolio/coinpassCard.png",
@@ -62,6 +73,7 @@
             "id": "mycwt",
             "title": "myCWT - Business Travel",
             "category": "Travel & Logistics",
+            "serviceCategory": "Mobile App Development",
             "description": "The essential travel companion for business travelers worldwide. Features flight and hotel bookings, real-time itinerary updates, and 24/7 support. Streamlined travel management for global organizations through a user-centric mobile interface.",
             "techStack": "Kotlin, Jetpack Compose, Google Maps API, Push Notifications, Offline Sync, Internationalization",
             "cardImage": "assets/img/portfolio/mycwtCard.png",
@@ -82,6 +94,7 @@
             "id": "modirum",
             "title": "Modirum ID & Authentication",
             "category": "Fintech & Security",
+            "serviceCategory": "Mobile App Development",
             "description": "Advanced payment security and strong customer authentication (SCA). Developed the 3-D Secure 2.0 SDK and authentication app used by banks globally to prevent fraud and ensure secure digital payments during high-risk transactions.",
             "techStack": "Security Hardening, Cryptography, SDK Development, JWS/JWE, Biometric Auth, ISO 20022",
             "cardImage": "assets/img/portfolio/modriumCard.png",
@@ -103,6 +116,7 @@
             "id": "cse",
             "title": "CIVIL SERVICE REVIEWER",
             "category": "Education",
+            "serviceCategory": "Mobile App Development",
             "description": "Civil Service Exam Reviewer is a comprehensive review app designed to help aspiring candidates prepare effectively for the Civil Service Exam (CSE). Covering both Sub-Professional and Professional levels, the app features a regularly updated question database, realistic practice tests, instant performance feedback, detailed analytics, and a helpful registration guide. With its user-friendly interface and expertly crafted review materials, it enables users to strengthen key areas, improve test-taking skills, and build confidence—making it a reliable companion for achieving success in the Civil Service Exam.",
             "techStack": "Kotlin, Firebase, Room, Jetpack Compose, Google Ads, In-App Purchases",
             "cardImage": "assets/img/portfolio/cseCard.png",
@@ -123,6 +137,7 @@
             "id": "periodic-table",
             "title": "Play To Learn: Periodic Table",
             "category": "Education",
+            "serviceCategory": "Mobile App Development",
             "description": "Play To Learn: Periodic Table is an engaging educational app designed to make learning chemistry interactive, enjoyable, and easy to understand. Featuring a fully interactive periodic table, users can tap on each element to explore detailed information such as atomic number, symbol, atomic weight, electron configuration, properties, history, uses, and orbital diagrams. The app also includes 3D atomic structure visualization to better understand electron arrangements, along with fun and educational quizzes to reinforce learning. With its intuitive interface and visually appealing design, it’s perfect for students, educators, and science enthusiasts who want to study at their own pace. This initial release marks the beginning of more exciting updates and features to come, making it a growing companion for anyone eager to explore the wonders of chemistry.",
             "techStack": "Kotlin, Maps SDK, QR Scanning, Payment Gateway, Real-time Tracking, Firebase",
             "cardImage": "assets/img/portfolio/ptCard.png",
@@ -142,6 +157,7 @@
             "id": "mlbb",
             "title": "MLBB Game Guide",
             "category": "Gaming & Social",
+            "serviceCategory": "Mobile App Development",
             "description": "MLBB Game Guide is a comprehensive companion app designed to help players improve their gameplay and strategy in Mobile Legends: Bang Bang. It provides detailed hero information, item builds, emblems, battle spells, rankings, tier lists, and drafting strategies—all in one convenient platform. With organized and easy-to-navigate data, users can explore hero stats and roles, compare items, learn optimal emblem and spell usage, track the current meta, and even simulate team drafts to practice compositions and counters. Regularly updated for accuracy and relevance, the app offers a simple, user-friendly experience for players of all skill levels.",
             "techStack": "Interactive UI, Lottie Animations, API Integration, Social Features, Real-time Stats",
             "cardImage": "assets/img/portfolio/mlbbCard.png",
@@ -162,6 +178,7 @@
             "id": "lto",
             "title": "Ultimate LTO Exam Reviewer",
             "category": "Education",
+            "serviceCategory": "Mobile App Development",
             "description": "Ultimate LTO Exam Reviewer is a comprehensive review app designed to help aspiring candidates prepare effectively for the Land Transportation Office (LTO) Exam. Covering both theoretical and practical driving knowledge, the app features a regularly updated question database, realistic practice tests, instant performance feedback, detailed analytics, and helpful resources for license application and renewal. With its user-friendly interface and expertly crafted review materials, it enables users to strengthen key areas, improve test-taking skills, and build confidence—making it a reliable companion for achieving success in the LTO Exam.",
             "techStack": "Kotlin, Firebase, Room, Jetpack Compose, Google Ads, In-App Purchases",
             "cardImage": "assets/img/portfolio/LTOCard.png",
@@ -180,8 +197,9 @@
         },
         {
             "id": "lms",
-            "title": "Laundry Management System (LMS)",
+            "title": "Laundry Management System",
             "category": "Business & Admin",
+            "serviceCategory": "Website Development",
             "description": "A Laundry Management System (LMS) is a digital system used to manage laundry shop operations efficiently. It tracks customer orders, service types, pricing, pickup and delivery, payment transactions, and order status. The system helps organize workflow, reduce errors, monitor income, and improve customer service by providing accurate and real-time updates.",
             "techStack": "Typescript, Laravel, React, Tailwind CSS, MySQL, Appointment Scheduling",
             "cardImage": "assets/img/portfolio/lmsCard.png",
@@ -212,8 +230,9 @@
         },
         {
             "id": "cms",
-            "title": "Clinic Management System (CMS)",
+            "title": "Clinic Management System",
             "category": "Healthcare",
+            "serviceCategory": "Website Development",
             "description": "A Clinic Management System (CMS) is a system designed to efficiently manage and streamline the daily operations of a clinic. It facilitates patient registration, appointment scheduling, medical record management, prescription handling, and basic administrative tasks. The system enhances operational efficiency, minimizes manual paperwork, ensures accurate and secure record-keeping, and improves the overall quality of patient care and service delivery.",
             "techStack": "JavaScript, PHP, HTML, CSS, Bootstrap, MySQL, Appointment Scheduling",
             "cardImage": "assets/img/portfolio/cmsCardAlt.png",
@@ -238,6 +257,180 @@
                 "assets/img/portfolio/CMS-GALLERY/CMS/CMS17.png"
             ],
             "bgColor": "#be185d"
+        },
+        {
+            "id": "tank-robot",
+            "title": "Tank Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A Tank Robot is a tracked mobile robot that uses continuous tracks instead of wheels, providing better traction and stability on rough or uneven surfaces. It is commonly used for exploration, surveillance, and educational robotics projects.",
+            "techStack": "Arduino / Raspberry Pi Controller, Tank Track Chassis with DC Motors, Motor Driver (L298N), Bluetooth or RF Wireless Control, Embedded Programming (C/C++)",
+            "cardImage": "assets/img/portfolio/Robotics_images/tank.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/tank_hover.png",
+            "gallery": [],
+            "bgColor": "#f59e0b"
+        },
+        {
+            "id": "line-tracing-robot",
+            "title": "Line Tracing Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A Line Tracing Robot is an autonomous robot designed to follow a specific path marked by a line on the floor. It uses infrared sensors to detect the line and adjusts its movement automatically to stay on track.",
+            "techStack": "Arduino Microcontroller, Infrared (IR) Line Tracking Sensors, DC Motors with Motor Driver, Embedded C Programming, Robot Chassis and Wheels",
+            "cardImage": "assets/img/portfolio/Robotics_images/line_tracing.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/line_tracing_hover.png",
+            "gallery": [],
+            "bgColor": "#ef4444"
+        },
+        {
+            "id": "object-avoidance-robot",
+            "title": "Object Avoidance Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "An Object Avoidance Robot is an autonomous robot that detects obstacles in its path and changes direction to avoid collisions. It is widely used in robotics education and as a foundation for autonomous navigation systems.",
+            "techStack": "Arduino Microcontroller, Ultrasonic Sensor (HC-SR04), Servo Motor for Sensor Scanning, Motor Driver (L298N), DC Motors and Robot Chassis, Embedded Programming (Arduino IDE)",
+            "cardImage": "assets/img/portfolio/Robotics_images/obstacle_avoid.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/obstacle_avoid_hover.png",
+            "gallery": [],
+            "bgColor": "#8b5cf6"
+        },
+        {
+            "id": "self-balancing-robot",
+            "title": "Self-Balancing Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A Self-Balancing Robot is a two-wheeled robot that maintains its upright position automatically using sensors and control algorithms. It continuously adjusts motor speed to maintain balance, similar to how a Segway works.",
+            "techStack": "Arduino / ESP32 Microcontroller, MPU6050 Gyroscope and Accelerometer Sensor, DC Motors with Motor Driver, PID Control Algorithm, Embedded Programming (C/C++)",
+            "cardImage": "assets/img/portfolio/self_balance.png",
+            "hoverImage": "assets/img/portfolio/self_balance_hover.png",
+            "gallery": [],
+            "bgColor": "#06b6d4"
+        },
+        {
+            "id": "mecanum-car-robot",
+            "title": "Mecanum Car Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A Mecanum Car Robot is a mobile robot that uses mecanum wheels to move in multiple directions without changing orientation. This omnidirectional movement makes it ideal for robotics competitions, research, and industrial automation applications.",
+            "techStack": "Arduino / ESP32 Controller, Mecanum Wheel Set (4 Wheels), DC Motors with Motor Driver (L298N / TB6612FNG), Wireless Control (Bluetooth or WiFi), Embedded Programming",
+            "cardImage": "assets/img/portfolio/Robotics_images/mecanum.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/mecanum_hover.png",
+            "gallery": [],
+            "bgColor": "#14b8a6"
+        },
+        {
+            "id": "pid-line-tracing",
+            "title": "PID Line Tracing Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A PID Line Tracing Robot is an advanced version of a line-following robot that uses a PID (Proportional–Integral–Derivative) control algorithm to follow a line smoothly and accurately. Instead of simple left-right corrections, the robot continuously calculates the error from the line and adjusts the motor speed to maintain a stable and fast path following. It is commonly used in robotics competitions and automation demonstrations.",
+            "techStack": "Arduino / ESP32 Microcontroller, Infrared (IR) Line Tracking Sensor Array, DC Motors with Motor Driver (L298N / TB6612FNG), PID Control Algorithm, Robot Chassis and Wheels, Embedded Programming (C/C++ / Arduino IDE)",
+            "cardImage": "assets/img/portfolio/Robotics_images/pid.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/pid_hover.png",
+            "gallery": [],
+            "bgColor": "#ef4444"
+        },
+        {
+            "id": "smart-home-system",
+            "title": "Smart Home System",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A Smart Home System is an automated system that allows users to remotely control and monitor household appliances and devices such as lights, fans, doors, and security cameras. Using wireless communication and sensors, the system improves convenience, energy efficiency, and home security.",
+            "techStack": "Arduino / ESP32 / Raspberry Pi Controller, WiFi or Bluetooth Communication, Relay Modules for Appliance Control, Sensors (Temperature, Motion, Light, etc.), Mobile Application or Web Dashboard, IoT Programming (Arduino IDE / Python / Web Technologies)",
+            "cardImage": "assets/img/portfolio/Robotics_images/smart_house.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/smart_house_hover.png",
+            "gallery": [],
+            "bgColor": "#3b82f6"
+        },
+        {
+            "id": "esp32-cam-4wd",
+            "title": "ESP32 Camera 4WD Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "The ESP32 Camera 4WD Robot is a four-wheel drive robot equipped with an ESP32-CAM module that enables real-time video streaming and remote control. It is commonly used for surveillance, remote monitoring, and IoT-based robotics projects.",
+            "techStack": "ESP32-CAM Module, 4WD Robot Chassis with DC Motors, Motor Driver (L298N), WiFi Communication, Camera Streaming via Web Server, Embedded Programming (Arduino IDE / ESP-IDF)",
+            "cardImage": "assets/img/portfolio/Robotics_images/ESP32.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/ESP32_hover.png",
+            "gallery": [],
+            "bgColor": "#10b981"
+        },
+        {
+            "id": "mechanical-arm-robot",
+            "title": "Mechanical Arm Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A Mechanical Arm Robot is a mobile robot equipped with mechanical wheels that allow omnidirectional movement (forward, backward, sideways, and diagonal). It also includes a robotic arm used for picking, lifting, or manipulating objects, making it suitable for automation, material handling, and robotics competitions.",
+            "techStack": "Arduino / ESP32 Microcontroller, Mechanical Wheels with DC Gear Motors, Motor Driver (L298N or BTS7960), Servo Motors for Robotic Arm, Bluetooth / WiFi Control Module, Embedded C / Arduino IDE Programming",
+            "cardImage": "assets/img/portfolio/Robotics_images/mech_arm.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/mech_arm_hover.png",
+            "gallery": [],
+            "bgColor": "#f59e0b"
+        },
+        {
+            "id": "panda-robot",
+            "title": "Panda Robot",
+            "category": "Robotics & Embedded Systems",
+            "serviceCategory": "Robotics & Embedded Systems",
+            "description": "A customized interactive educational robot built with advanced sensory capabilities and a friendly aesthetic. Through programmed responses and varied sensors, the Panda Robot acts as an engaging platform to teach basics of AI, programming logic, and human-robot interaction.",
+            "techStack": "Microcontrollers, Proximity and Touch Sensors, Speaker and Sound Modules, Stepper / Servo Motors for Gestures, Educational Programming Interfaces",
+            "cardImage": "assets/img/portfolio/Robotics_images/panda_robot.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/panda_robot_hover.png",
+            "gallery": [],
+            "bgColor": "#8b5cf6"
+        },
+        {
+            "id": "arduino-mega-casing",
+            "title": "Arduino Mega Casing",
+            "category": "Graphics, 3D & Animations",
+            "serviceCategory": "Graphics, 3D & Animations",
+            "description": "An Arduino Mega Casing is a custom-designed protective enclosure for the Arduino Mega microcontroller board. It shields the internal components from dust, accidental short circuits, and physical damage while providing easy access to all input/output pins and communication ports. It is widely used in prototyping, educational projects, and permanent DIY electronics installations.",
+            "techStack": "3D Modeling (CAD), 3D Printing (PLA / ABS / PETG), Arduino Mega 2560, Prototyping, Enclosure Design",
+            "cardImage": "assets/img/portfolio/Robotics_images/box2.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/box_hover2.png",
+            "gallery": [],
+            "bgColor": "#6b7280"
+        },
+        {
+            "id": "sumobot-shield",
+            "title": "Sumobot Shield",
+            "category": "Graphics, 3D & Animations",
+            "serviceCategory": "Graphics, 3D & Animations",
+            "description": "A Sumobot Shield is an integrated expansion board designed specifically for sumo robot competitions. It simplifies wiring by providing direct connections for motor drivers, infrared edge sensors, ultrasonic distance sensors, and power management modules, enabling builders to focus on programming and strategy rather than complex circuit assemblies.",
+            "techStack": "PCB Design, Embedded Systems, Motor Control, Sensor Integration, Arduino / Custom Microcontroller",
+            "cardImage": "assets/img/portfolio/Robotics_images/shield1.png",
+            "hoverImage": "assets/img/portfolio/Robotics_images/shield_hover1.png",
+            "gallery": [
+                "assets/img/portfolio/videos/shiel print video.mp4"
+            ],
+            "bgColor": "#dc2626"
+        },
+        {
+            "id": "car-rental-design",
+            "title": "Car Rental Management System",
+            "category": "App & Web Designs",
+            "serviceCategory": "App & Web Designs",
+            "description": "A modern and user-friendly web interface designed for a car rental platform. The design focuses on clear navigation, intuitive booking flow, and visually organized vehicle listings to improve the user experience for customers and administrators.<br><br><b>Design Features:</b><ul><li>Clean and modern dashboard layout</li><li>Vehicle listing interface with card-based design</li><li>Booking and reservation UI flow</li><li>Admin dashboard UI for managing vehicles and transactions</li><li>Organized navigation and responsive layout</li><li>Consistent color scheme and typography</li><li>User-friendly forms and interaction elements</li></ul>",
+            "techStack": "Figma, UI/UX Design, Web Design, Wireframing, Prototyping",
+            "cardImage": "",
+            "hoverImage": "",
+            "gallery": [
+                "assets/img/portfolio/design/car_rental.png"
+            ],
+            "bgColor": "#3b82f6"
+        },
+        {
+            "id": "lol-guide-design",
+            "title": "LOL Game Guide",
+            "category": "App & Web Designs",
+            "serviceCategory": "App & Web Designs",
+            "description": "A mobile UI design created for a game guide application for players of League of Legends. The design focuses on easy navigation, organized champion information, and visually engaging layouts for builds and guides.<br><br><b>Design Features:</b><ul><li>Champion list and browsing interface</li><li>Champion detail pages with builds and strategies</li><li>Clean card-based content layout</li><li>Easy navigation between guides and sections</li><li>Game-themed UI style and color palette</li><li>Mobile-friendly layout and readability</li></ul>",
+            "techStack": "Figma, Mobile App Design, UI/UX Design, Wireframing, Game Interface",
+            "cardImage": "",
+            "hoverImage": "",
+            "gallery": [
+                "assets/img/portfolio/design/lol_guide.png"
+            ],
+            "bgColor": "#eab308"
         }
     ]
 }
