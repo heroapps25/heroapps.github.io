@@ -1,10 +1,10 @@
 {
-  "badge": "Premium Software Development Services",
+  "badge": "Advanced Technology & Design Solutions",
   "title": {
-    "main": "We Build Scalable Android Apps for ",
+    "main": "We Build Innovative Solutions for ",
     "highlight": "Global Brands"
   },
-  "description": "HeroApps is a specialized software development studio with 4+ years of experience crafting high-performance, secure, and user-centric mobile applications using Kotlin and Jetpack Compose.",
+  "description": "HeroApps is a multidisciplinary technology studio with 4+ years of experience in software development, robotics engineering, UI/UX design, 3D printing, and digital product design. We create scalable, high-performance, and user-focused solutions for modern businesses.",
   "buttons": [
     {
       "text": "View Our Work",
@@ -20,7 +20,7 @@
     }
   ],
   "profileImage": "assets/img/heroapps-official-logo_no_text-01.svg",
-  "profileAlt": "HeroApps - Android Development Studio",
+  "profileAlt": "HeroApps Technology and Design Studio",
   "stats": [
     {
       "value": 4,
@@ -31,7 +31,7 @@
     {
       "value": 20,
       "suffix": "+",
-      "label": "Apps Shipped",
+      "label": "Projects Delivered",
       "position": "bottom-right"
     }
   ]
