@@ -1,0 +1,363 @@
+/* css/expertise-layout.css */
+
+/* ============================================================
+   WRAPPER — shared base
+   ============================================================ */
+#skills-layout-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 1.5rem;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.skills-left-panel,
+.skills-right-panel {
+    transition: width 0.4s ease-in-out, flex-basis 0.4s ease-in-out, max-width 0.4s ease-in-out, opacity 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   GRID VIEW STATE
+   ============================================================ */
+.skills-left-panel.grid-mode-panel {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.skills-right-panel.grid-mode-panel {
+    display: none;
+    opacity: 0;
+}
+
+/* ============================================================
+   SIDEBAR VIEW STATE — wrapper
+   ============================================================ */
+.skills-sidebar-view#skills-layout-wrapper,
+.skills-sidebar-view.position-relative {
+    gap: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ============================================================
+   SIDEBAR — LEFT PANEL (nav sidebar)
+   ============================================================ */
+.skills-sidebar-view .skills-left-panel {
+    flex: 0 0 28%;
+    max-width: 28%;
+    height: auto;
+    overflow: visible;
+    align-self: stretch;
+
+    /* Sidebar visual style */
+    background: rgba(10, 15, 25, 0.85);
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Sidebar label — hidden in grid, visible in sidebar */
+.sidebar-nav-label {
+    display: none;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    padding: 1.1rem 1.1rem 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 0.25rem;
+}
+
+.skills-sidebar-view .sidebar-nav-label {
+    display: block;
+}
+
+/* Pillars container in sidebar */
+.skills-sidebar-view #skills-pillars {
+    padding: 0.4rem 0.5rem 0.75rem !important;
+    gap: 0.2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Each column is full width — 1 per row */
+.skills-sidebar-view #skills-pillars .col-md-6,
+.skills-sidebar-view #skills-pillars .col-lg-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+
+/* Nav row card — strip all card styling */
+.skills-sidebar-view #skills-pillars .expertise-pillar-card {
+    padding: 0.65rem 0.9rem !important;
+    min-height: auto;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 10px !important;
+    border-left: 3px solid transparent !important;
+    transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Hover state */
+.skills-sidebar-view .card.glass-card:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-left-color: rgba(66, 133, 244, 0.4) !important;
+    box-shadow: none;
+    border-color: transparent !important;
+    border-left-color: rgba(66, 133, 244, 0.4) !important;
+}
+
+/* Active state */
+.skills-sidebar-view .card.glass-card.expertise-active {
+    background: rgba(66, 133, 244, 0.1) !important;
+    border-left-color: rgba(66, 133, 244, 0.9) !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+/* Hide description in sidebar nav */
+.skills-sidebar-view #skills-pillars .desc-dynamic {
+    display: none !important;
+}
+
+/* Title + icon sizing */
+.skills-sidebar-view #skills-pillars .title-dynamic {
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.skills-sidebar-view #skills-pillars .expertise-active .title-dynamic {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.skills-sidebar-view #skills-pillars .icon-dynamic {
+    font-size: 0.9rem !important;
+}
+
+/* Icon row stays horizontal */
+.skills-sidebar-view #skills-pillars .title-wrapper {
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    gap: 0 !important;
+    column-gap: 0.65rem !important;
+}
+
+/* ============================================================
+   SIDEBAR — RIGHT PANEL (main tech stack stage)
+   ============================================================ */
+.skills-sidebar-view .skills-right-panel {
+    display: block;
+    flex: 1 1 0;
+    max-width: 72%;
+    height: auto;
+    min-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    opacity: 1;
+    animation: fadeInPanel 0.4s ease forwards;
+    background: rgba(15, 21, 35, 0.6);
+    padding: 1.5rem;
+}
+
+.skills-sidebar-view .skills-right-panel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tech stack inner card — transparent */
+.tech-stack-card {
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+/* ============================================================
+   PANEL ANIMATION
+   ============================================================ */
+@keyframes fadeInPanel {
+    from {
+        opacity: 0;
+        transform: translateX(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================================
+   ACTIVE PILLAR — global fallback
+   ============================================================ */
+.card.glass-card.expertise-active {
+    border-color: rgba(66, 133, 244, 0.8) !important;
+    box-shadow: 0 0 25px rgba(66, 133, 244, 0.25) !important;
+    background: rgba(30, 41, 59, 0.95) !important;
+}
+
+/* ============================================================
+   GRID VIEW — restore original card styles
+   ============================================================ */
+.skills-grid-view #skills-pillars .expertise-pillar-card {
+    padding: 1.5rem !important;
+}
+
+.skills-grid-view #skills-pillars .title-dynamic {
+    font-size: 1.5rem !important;
+}
+
+.skills-grid-view #skills-pillars .icon-dynamic {
+    font-size: 1.5rem !important;
+}
+
+.skills-grid-view #skills-pillars .desc-dynamic {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+}
+
+.skills-grid-view #skills-pillars .title-wrapper {
+    margin-bottom: 1rem !important;
+    column-gap: 1rem !important;
+}
+
+.skills-grid-view #skills-pillars {
+    gap: 0 !important;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+
+.skills-grid-view #skills-pillars .pillar-col {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.card.glass-card {
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.skills-grid-view .card.glass-card:hover {
+    transform: translateY(-8px);
+}
+
+/* ============================================================
+   MOBILE BACK BUTTON — shown via JS .visible class
+   ============================================================ */
+.skills-mobile-back {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.skills-mobile-back:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* ============================================================
+   RESPONSIVE — tablet + mobile (≤991px)
+   ============================================================ */
+@media (max-width: 991.98px) {
+
+    /* Wrapper: stacks vertically */
+    #skills-layout-wrapper {
+        flex-direction: column;
+        border-radius: 12px;
+    }
+
+    /* Force wrapper to shed grid-mode height when sidebar activates on mobile */
+    .skills-sidebar-view#skills-layout-wrapper {
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    /* Show back button when JS adds .visible */
+    .skills-mobile-back.visible {
+        display: flex;
+    }
+
+    /* MOBILE SIDEBAR MODE:
+       Left panel hidden entirely — user tapped a card and is in detail view.
+       Right panel fills full width as a clean detail screen. */
+    .skills-sidebar-view .skills-left-panel {
+        display: none !important;
+    }
+
+    .skills-sidebar-view .skills-right-panel {
+        flex: 0 0 auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 1.25rem !important;
+    }
+
+    /* Collapse inner card + list to content height — no empty space below */
+    .skills-sidebar-view .tech-stack-card {
+        height: auto !important;
+    }
+
+    .skills-sidebar-view #skills-tech-list {
+        flex-grow: 0 !important;
+        align-items: flex-start !important;
+    }
+
+    /* Tech grid: 2 columns on tablet/mobile */
+    .tech-link-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — small mobile (≤575px)
+   ============================================================ */
+@media (max-width: 575.98px) {
+
+    .skills-sidebar-view .skills-right-panel {
+        padding: 1rem !important;
+    }
+
+    /* Single column on phone */
+    .tech-link-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================================
+   FADE-IN ANIMATION FOR TECH ITEMS
+   ============================================================ */
+@keyframes techStackFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tech-stack-item-animated {
+    animation: techStackFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
