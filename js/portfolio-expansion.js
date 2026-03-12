@@ -14,7 +14,6 @@ class PortfolioExpansion {
         this.savedScrollPosition = 0;
 
         // Auto-scroll properties
-        // Auto-scroll properties
         this.autoScrollSpeed = 0.5; // Base absolute speed
         this.scrollDirection = 1; // 1 for right, -1 for left
         this.autoScrollAnimation = null;
@@ -66,8 +65,8 @@ class PortfolioExpansion {
             // Remove old listener if exists
             card.removeEventListener('click', card._expandHandler);
             card._expandHandler = (e) => {
-                // Ignore click if we dragged significantly
-                if (this.draggedDistance > 5) {
+                // Ignore click if we dragged significantly (jiggle threshold bumped to 10 for easier clicking)
+                if (this.draggedDistance > 10) {
                     e.preventDefault();
                     e.stopPropagation();
                     return;
@@ -93,7 +92,7 @@ class PortfolioExpansion {
                 </button>
                 <div class="portfolio-expanded-image-container">
                     <div class="portfolio-expanded-image">
-                        <img src="" alt="" class="portfolio-slide active">
+                        <!-- Dynamic content loaded here -->
                     </div>
                     <div class="portfolio-carousel-controls" style="display: none;">
                         <button class="portfolio-carousel-prev"><i class="fas fa-chevron-left"></i></button>
@@ -140,15 +139,25 @@ class PortfolioExpansion {
 
         this.scrollContainer.addEventListener('mouseleave', () => {
             this.isHovering = false;
-            this.isDragging = false;
-            this.scrollContainer.classList.remove('dragging');
+        });
+
+        // Global mouseup to prevent perpetual drag if released outside container
+        window.addEventListener('mouseup', () => {
+            if (this.isDragging) {
+                this.isDragging = false;
+                this.scrollContainer.classList.remove('dragging');
+                this.scrollContainer.style.scrollBehavior = 'smooth';
+            }
         });
 
         // Drag to scroll functionality
         this.scrollContainer.addEventListener('mousedown', (e) => {
+            // Prevent default to stop browser image ghost-dragging, which ruins custom mouseup detection
+            e.preventDefault();
             this.isDragging = true;
             this.scrollContainer.classList.add('dragging');
             this.startX = e.pageX - this.scrollContainer.offsetLeft;
+            this.initialX = this.startX; // Save initial X to prevent path-length issues
             this.scrollLeft = this.scrollContainer.scrollLeft;
             this.draggedDistance = 0;
 
@@ -171,11 +180,8 @@ class PortfolioExpansion {
             const x = e.pageX - this.scrollContainer.offsetLeft;
             const walk = (x - this.startX) * 1.5; // Scroll speed multiplier
 
-            // Accumulate absolute drag distance to know if it's a click or a drag
-            if (this.draggedDistance === 0 && Math.abs(walk) > 0) {
-                // First movement
-            }
-            this.draggedDistance += Math.abs(x - this.startX);
+            // Store net displacement rather than accumulating path length which punished mouse jiggles
+            this.draggedDistance = Math.abs(x - this.initialX);
             this.startX = x; // Reset startX to current so drag is relative to last pos
 
             // Apply drag
@@ -231,8 +237,43 @@ class PortfolioExpansion {
         const controls = this.expandedView.querySelector('.portfolio-carousel-controls');
         const dotsContainer = this.expandedView.querySelector('.portfolio-carousel-dots');
 
+        // Helper function to create generic slide element (image or video)
+        const createSlideElement = (src, isFirst = false) => {
+            const isVideo = src.match(/\.(mp4|webm|mov)$/i);
+            const el = document.createElement(isVideo ? 'video' : 'img');
+            el.src = src;
+            el.className = `portfolio-slide ${isFirst ? 'active' : ''}`;
+            if (isVideo) {
+                // Removing controls entirely to act like a GIF
+                el.muted = true;
+                el.defaultMuted = true;
+                el.setAttribute('muted', '');
+                el.autoplay = true;
+                el.loop = false; // So we can catch the 'ended' event
+                el.playsInline = true;
+                el.setAttribute('preload', 'metadata');
+
+                // Keep controls for play/pause but hide volume via CSS-like trick (some browsers support this)
+                el.controls = false;
+            } else {
+                el.alt = title;
+            }
+            return el;
+        };
+
         // Reset container and set first image
-        imgContainer.innerHTML = `<img src="${image}" alt="${title}" class="portfolio-slide active">`;
+        imgContainer.innerHTML = '';
+        const mainEl = createSlideElement(image, true);
+
+        // Add fullscreen capability to single images too
+        mainEl.onclick = (e) => {
+            e.stopPropagation();
+            if (mainEl.requestFullscreen) mainEl.requestFullscreen();
+            else if (mainEl.webkitRequestFullscreen) mainEl.webkitRequestFullscreen();
+            else if (mainEl.msRequestFullscreen) mainEl.msRequestFullscreen();
+        };
+
+        imgContainer.appendChild(mainEl);
 
         if (gallery.length > 0) {
             controls.style.display = 'flex';
@@ -242,13 +283,11 @@ class PortfolioExpansion {
                 gallery.unshift(image);
             }
 
-            // Add other images to DOM
-            gallery.forEach((imgSrc, i) => {
-                if (i > 0) { // First image is already added
-                    const img = document.createElement('img');
-                    img.src = imgSrc;
-                    img.className = 'portfolio-slide';
-                    imgContainer.appendChild(img);
+            // Add other media to DOM
+            gallery.forEach((mediaSrc, i) => {
+                if (i > 0) { // First media is already added
+                    const mediaEl = createSlideElement(mediaSrc, false);
+                    imgContainer.appendChild(mediaEl);
                 }
             });
 
@@ -259,7 +298,7 @@ class PortfolioExpansion {
             this.galleryLength = gallery.length;
             this.goToSlide(0); // Initialize classes
 
-            // Make slides clickable
+            // Make slides clickable for prev/next and fullscreen zoom
             imgContainer.querySelectorAll('.portfolio-slide').forEach((slide, i) => {
                 slide.onclick = (e) => {
                     e.stopPropagation();
@@ -267,6 +306,15 @@ class PortfolioExpansion {
                         this.goToSlide(this.currentSlide - 1);
                     } else if (slide.classList.contains('next')) {
                         this.goToSlide(this.currentSlide + 1);
+                    } else if (slide.classList.contains('active')) {
+                        // Zoom / Fullscreen when clicking the active image/video
+                        if (slide.requestFullscreen) {
+                            slide.requestFullscreen();
+                        } else if (slide.webkitRequestFullscreen) {
+                            slide.webkitRequestFullscreen(); // Safari
+                        } else if (slide.msRequestFullscreen) {
+                            slide.msRequestFullscreen(); // IE11
+                        }
                     }
                 };
             });
@@ -295,7 +343,7 @@ class PortfolioExpansion {
 
         this.expandedView.querySelector('.portfolio-expanded-category').textContent = category;
         this.expandedView.querySelector('.portfolio-expanded-title').textContent = title;
-        this.expandedView.querySelector('.portfolio-expanded-description').textContent = description;
+        this.expandedView.querySelector('.portfolio-expanded-description').innerHTML = description;
         this.expandedView.dataset.projectUrl = projectUrl;
 
         const techContainer = this.expandedView.querySelector('.portfolio-tech-stack');
@@ -398,6 +446,11 @@ class PortfolioExpansion {
                                         }
                                     };
                                     card.addEventListener('transitionend', enableHover);
+
+                                    // Fallback timeout in case the CSS opacity transition doesn't fire or drops
+                                    setTimeout(() => {
+                                        card.style.pointerEvents = 'auto';
+                                    }, 800);
                                 }, index * 50); // Small delay between each card for wave effect
                             });
                         }, 200); // Reduced delay for faster response
@@ -468,10 +521,35 @@ class PortfolioExpansion {
         const slides = this.expandedView.querySelectorAll('.portfolio-slide');
         const dots = this.expandedView.querySelectorAll('.portfolio-dot');
 
+        let isVideoActive = false; // Flag to check if current slide is a video
+
         slides.forEach((slide, i) => {
             slide.classList.remove('active', 'prev', 'next');
+
+            // Manage video playback state
+            if (slide.tagName.toLowerCase() === 'video') {
+                slide.pause();
+                slide.currentTime = 0; // Reset video to beginning when slide changes
+            }
+
             if (i === index) {
                 slide.classList.add('active');
+                if (slide.tagName.toLowerCase() === 'video') {
+                    isVideoActive = true;
+                    slide.muted = true; // Enforce mute on play
+                    slide.loop = false; // Ensure it stops at the end to trigger 'ended'
+
+                    // Play the video and stop auto-play so user can watch it
+                    slide.play().catch(e => console.error("Video play failed:", e));
+                    this.stopCarouselAutoPlay();
+
+                    // Move to the next slide when the video finishes
+                    slide.onended = () => {
+                        if (this.isExpanded && this.galleryLength > 1) {
+                            this.goToSlide(this.currentSlide + 1);
+                        }
+                    };
+                }
             } else if (this.galleryLength > 2) {
                 if (i === (index - 1 + this.galleryLength) % this.galleryLength) {
                     slide.classList.add('prev');
@@ -489,6 +567,11 @@ class PortfolioExpansion {
             if (i === index) dot.classList.add('active');
             else dot.classList.remove('active');
         });
+
+        // Restart autoplay if we transitioned to an image and not hovering
+        if (!isVideoActive && this.galleryLength > 1) {
+            this.startCarouselAutoPlay();
+        }
     }
 
     startAutoScroll() {
