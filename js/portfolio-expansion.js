@@ -575,21 +575,36 @@ class PortfolioExpansion {
     }
 
     startAutoScroll() {
+        // Minimum overflow required to start auto-scrolling (in pixels)
+        const MIN_OVERFLOW_THRESHOLD = 50;
+        // Buffer to prevent rapid direction flipping at boundaries
+        const BOUNDARY_BUFFER = 2;
+
         const scroll = () => {
             if (!this.isHovering && !this.isExpanded && !this.isDragging && this.scrollContainer) {
-                // Get current scroll position
+                // Get current dimensions
                 const currentScroll = this.scrollContainer.scrollLeft;
-                const maxScroll = this.scrollContainer.scrollWidth - this.scrollContainer.clientWidth;
+                const scrollWidth = this.scrollContainer.scrollWidth;
+                const clientWidth = this.scrollContainer.clientWidth;
+                const maxScroll = scrollWidth - clientWidth;
 
-                // Ping-pong logic
-                if (currentScroll >= maxScroll - 1) { // -1 leeway
-                    this.scrollDirection = -1; // Reverse to left
-                } else if (currentScroll <= 0) {
-                    this.scrollDirection = 1; // Reverse to right
+                // Only scroll if there is significant overflow
+                if (maxScroll > MIN_OVERFLOW_THRESHOLD) {
+                    // Ping-pong logic with boundary buffer
+                    if (currentScroll >= maxScroll - BOUNDARY_BUFFER) {
+                        this.scrollDirection = -1; // Reverse to left
+                    } else if (currentScroll <= BOUNDARY_BUFFER) {
+                        this.scrollDirection = 1; // Reverse to right
+                    }
+
+                    // Increment or decrement scroll position
+                    this.scrollContainer.scrollLeft += (this.autoScrollSpeed * this.scrollDirection);
+                } else {
+                    // If no significant overflow, slowly reset to start if not already there
+                    if (currentScroll > 0) {
+                        this.scrollContainer.scrollLeft -= this.autoScrollSpeed;
+                    }
                 }
-
-                // Increment or decrement scroll position
-                this.scrollContainer.scrollLeft += (this.autoScrollSpeed * this.scrollDirection);
             }
 
             this.autoScrollAnimation = requestAnimationFrame(scroll);
