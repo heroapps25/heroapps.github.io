@@ -431,8 +431,8 @@
             "serviceCategory": "App & Web Designs",
             "description": "A mobile UI design created for a game guide application for players of League of Legends. The design focuses on easy navigation, organized champion information, and visually engaging layouts for builds and guides.<br><br><b>Design Features:</b><ul><li>Champion list and browsing interface</li><li>Champion detail pages with builds and strategies</li><li>Clean card-based content layout</li><li>Easy navigation between guides and sections</li><li>Game-themed UI style and color palette</li><li>Mobile-friendly layout and readability</li></ul>",
             "techStack": "Figma, Mobile App Design, UI/UX Design, Wireframing, Game Interface",
-            "cardImage": "assets/img/portfolio/design/lol_guide.png",
-            "hoverImage": "assets/img/portfolio/design/lol_guide2.png",
+            "cardImage": "assets/img/portfolio/design/lol.png",
+            "hoverImage": "assets/img/portfolio/design/lol_hover.png",
             "gallery": [
                 "assets/img/portfolio/design/lol_guide.png",
                 "assets/img/portfolio/design/lol_guide2.png"
@@ -440,12 +440,26 @@
             "bgColor": "#eab308"
         },
         {
+            "id": "mlbb-guide-design",
+            "title": "MLBB Game Guide",
+            "category": "App & Web Designs",
+            "serviceCategory": "App & Web Designs",
+            "description": "A comprehensive mobile UI design for a Mobile Legends: Bang Bang (MLBB) game guide application. Designed to provide players with quick access to hero statistics, item builds, and gameplay strategies. The interface emphasizes high-impact visuals and efficient data presentation.<br><br><b>Design Features:</b><ul><li>Dynamic hero selection and filtering</li><li>Optimized item build paths and equipment stats</li><li>Role-specific strategy guides and tips</li><li>Sleek, gaming-inspired dark mode interface</li><li>Responsive mobile-first navigation</li><li>Intuitive icon-based visual communication</li></ul>",
+            "techStack": "Figma, Mobile App Design, UI/UX Design, Gaming Interface Design, Visual Design",
+            "cardImage": "assets/img/portfolio/design/mlbbCard.png",
+            "hoverImage": "assets/img/portfolio/design/mlbbHoverCard.png",
+            "gallery": [
+                "assets/img/portfolio/design/mlbb_showcase.png"
+            ],
+            "bgColor": "#0f172a"
+        },
+        {
             "id": "thesis-idea-generator",
             "title": "Thesis Idea Generator",
             "category": "App & Web Designs",
             "serviceCategory": "App & Web Designs",
-            "description": "A mobile UI design created for a game guide application for players of League of Legends. The design focuses on easy navigation, organized champion information, and visually engaging layouts for builds and guides.<br><br><b>Design Features:</b><ul><li>Champion list and browsing interface</li><li>Champion detail pages with builds and strategies</li><li>Clean card-based content layout</li><li>Easy navigation between guides and sections</li><li>Game-themed UI style and color palette</li><li>Mobile-friendly layout and readability</li></ul>",
-            "techStack": "Figma, Mobile App Design, UI/UX Design, Wireframing, Game Interface",
+            "description": "A creative mobile UI design for a Thesis Idea Generator application. The app helps students brainstorm and refine research topics by providing categorized prompts, trending research areas, and structural guidance for thesis proposal drafting.<br><br><b>Design Features:</b><ul><li>Interactive brainstorming dashboard</li><li>Categorized research domains</li><li>AI-driven topic suggestions based on interests</li><li>Modern and minimal professional layout</li><li>Saved ideas and research bookmarks</li><li>Professional dark-themed aesthetic</li></ul>",
+            "techStack": "Figma, Mobile App Design, UI/UX Design, Research Tool UI",
             "cardImage": "assets/img/portfolio/design/thesis_idea_gen.png",
             "hoverImage": "assets/img/portfolio/design/thesis_idea_gen_hover.png",
             "gallery": [
