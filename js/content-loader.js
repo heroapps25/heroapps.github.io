@@ -590,7 +590,7 @@ const ContentLoader = {
                     techContainer.parentElement.classList.remove('grid-mode-panel');
 
                     // Update title
-                    if (activeTitle) activeTitle.textContent = pillarData.title + ' Stack';
+                    if (activeTitle) activeTitle.textContent = 'Advanced Technologies:';
 
                     // Render tech stack
                     renderTechStack(pillarData.techStack);
