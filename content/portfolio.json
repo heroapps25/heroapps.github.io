@@ -452,6 +452,20 @@
                 "assets/img/portfolio/design/thesis_idea_display.png"
             ],
             "bgColor": "#eab308"
+        },
+        {
+            "id": "ph-investment-guide",
+            "title": "PH Investment Guide – Mobile App Design",
+            "category": "App & Web Designs",
+            "serviceCategory": "App & Web Designs",
+            "description": "A mobile app UI concept designed to present financial and investment information in a simple and visually organized way for beginners and aspiring investors.<br><br><b>Design Features:</b><ul><li>Investment category browsing interface</li><li>Educational content layout</li><li>Card-based design for investment topics</li><li>Clear typography and structured information flow</li><li>User-friendly navigation for financial learning</li></ul>",
+            "techStack": "Figma, Mobile App Design, UI/UX Design, Wireframing, Financial UI",
+            "cardImage": "assets/img/portfolio/design/ph_investment1.png",
+            "hoverImage": "assets/img/portfolio/design/ph_investment_hover1.png",
+            "gallery": [
+                "assets/img/portfolio/design/ph_investment_design.png"
+            ],
+            "bgColor": "#0f172a"
         }
     ]
 }
