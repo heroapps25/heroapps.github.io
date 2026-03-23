@@ -409,8 +409,14 @@ const ContentLoader = {
                         gridContainer.querySelectorAll('.team-card:not(.hidden)').forEach(card => {
                             card.classList.add('show');
                         });
-                        // Optional: unobserve if we only want it to happen once
-                        // entranceObserver.unobserve(gridContainer);
+                    } else {
+                        // Remove show class when element is below the viewport
+                        // This allows the animation to re-trigger when scrolling back down
+                        if (entry.boundingClientRect.top > 0) {
+                            gridContainer.querySelectorAll('.team-card').forEach(card => {
+                                card.classList.remove('show');
+                            });
+                        }
                     }
                 });
             }, { threshold: 0.1 });
